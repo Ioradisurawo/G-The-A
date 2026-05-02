@@ -1,0 +1,19 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/G-The-A/UI/Default%20USS.uss?fileID=7433441132597879392&amp;guid=c512675799429ea4d860f4e0aa532de8&amp;type=3#Default USS"/>
+    <ui:VisualElement name="Background" style="flex-grow: 1; flex-shrink: 1; background-color: rgb(255, 236, 153); flex-direction: row;">
+        <ui:Label text="УТ-вер-0" name="title" style="flex-direction: column; rotate: -90deg; transform-origin: center; visibility: visible; overflow: visible; flex-wrap: nowrap; align-items: auto; justify-content: flex-start; align-self: center; align-content: flex-start; -unity-text-align: middle-left; scale: 1 1; flex-shrink: 0; flex-grow: 0; height: auto; width: 2%;"/>
+        <ui:VisualElement name="block-rows" enabled="true" style="flex-grow: 1; flex-direction: row;">
+            <ui:VisualElement name="info-block" enabled="true" style="flex-grow: 1; flex-direction: column; background-color: rgba(0, 0, 0, 0.12); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgba(0, 0, 0, 0.2); border-right-color: rgba(0, 0, 0, 0.2); border-top-color: rgba(0, 0, 0, 0.2); border-bottom-color: rgba(0, 0, 0, 0.2); margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; width: 50%;">
+                <ui:Label text="_данные" name="block-name" enabled="true"/>
+                <ui:VisualElement name="block-body-rows" style="flex-grow: 1; flex-direction: row; background-color: rgba(0, 0, 0, 0.12); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgba(0, 0, 0, 0.2); border-right-color: rgba(0, 0, 0, 0.2); border-top-color: rgba(0, 0, 0, 0.2); border-bottom-color: rgba(0, 0, 0, 0.2); margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="action-block" enabled="true" style="flex-grow: 1; flex-direction: column; background-color: rgba(0, 0, 0, 0.12); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgba(0, 0, 0, 0.2); border-right-color: rgba(0, 0, 0, 0.2); border-top-color: rgba(0, 0, 0, 0.2); border-bottom-color: rgba(0, 0, 0, 0.2); margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; width: 50%;">
+                <ui:Label text="_действия" name="block-name"/>
+                <ui:VisualElement name="block-body" enabled="true" style="flex-grow: 1; flex-direction: column; background-color: rgba(0, 0, 0, 0.12); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgba(0, 0, 0, 0.2); border-right-color: rgba(0, 0, 0, 0.2); border-top-color: rgba(0, 0, 0, 0.2); border-bottom-color: rgba(0, 0, 0, 0.2); margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;">
+                    <ui:Label text="&gt;" name="status-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="button-row" enabled="true" style="flex-grow: 1; flex-direction: row; background-color: rgba(0, 0, 0, 0.12); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgba(0, 0, 0, 0.2); border-right-color: rgba(0, 0, 0, 0.2); border-top-color: rgba(0, 0, 0, 0.2); border-bottom-color: rgba(0, 0, 0, 0.2); margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; align-content: center; align-self: auto; justify-content: center; align-items: center;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

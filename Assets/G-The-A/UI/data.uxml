@@ -1,0 +1,14 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="data" class="data">
+        <ui:Label text="NAMAE" name="name" style="flex-wrap: nowrap; overflow: visible; white-space: normal;">
+            <Bindings>
+                <ui:DataBinding property="text" data-source-path="name" binding-mode="ToTarget" source-to-ui-converters="Enum Name to String"/>
+            </Bindings>
+        </ui:Label>
+        <ui:Label text="VALUE" name="value" data-source-path="" style="-unity-text-align: middle-center; text-overflow: clip; white-space: normal; background-color: rgb(255, 255, 255); flex-wrap: nowrap; overflow: visible;">
+            <Bindings>
+                <ui:DataBinding property="text" data-source-path="value" binding-mode="ToTarget"/>
+            </Bindings>
+        </ui:Label>
+    </ui:VisualElement>
+</ui:UXML>

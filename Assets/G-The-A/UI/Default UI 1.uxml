@@ -1,0 +1,14 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/G-The-A/UI/Default%20USS.uss?fileID=7433441132597879392&amp;guid=c512675799429ea4d860f4e0aa532de8&amp;type=3#Default USS"/>
+    <ui:VisualElement name="Background" style="flex-grow: 1; flex-shrink: 1; background-color: rgba(255, 236, 153, 0); flex-direction: row;">
+        <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+            <ui:VisualElement name="info-block" style="flex-grow: 1; flex-direction: column; background-color: rgb(255, 236, 153); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);"/>
+            <ui:VisualElement style="flex-grow: 1;">
+                <ui:VisualElement style="flex-grow: 1; background-color: rgb(255, 236, 153); border-top-width: 1px; border-right-width: 0; border-bottom-width: 1px; border-left-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);"/>
+                <ui:VisualElement style="flex-grow: 1; height: 50%;"/>
+                <ui:VisualElement style="flex-grow: 1; background-color: rgb(255, 236, 153); border-top-width: 1px; border-right-width: 0; border-bottom-width: 1px; border-left-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="action-block" style="flex-grow: 1; background-color: rgb(255, 236, 153); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

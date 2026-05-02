@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="block-body-row" enabled="true" style="flex-grow: 1; flex-direction: column; background-color: rgba(0, 0, 0, 0.12); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgba(0, 0, 0, 0.2); border-right-color: rgba(0, 0, 0, 0.2); border-top-color: rgba(0, 0, 0, 0.2); border-bottom-color: rgba(0, 0, 0, 0.2); margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; width: 100%; text-overflow: clip; white-space: normal;">
+        <ui:Label text="block-name" name="block-name" enabled="true" style="-unity-text-align: upper-center; background-color: rgb(255, 236, 153); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; white-space: normal;">
+            <Bindings>
+                <ui:DataBinding property="text" data-source-path="name" binding-mode="ToTarget"/>
+            </Bindings>
+        </ui:Label>
+        <ui:ScrollView name="list" style="flex-grow: 1;"/>
+    </ui:VisualElement>
+</ui:UXML>
