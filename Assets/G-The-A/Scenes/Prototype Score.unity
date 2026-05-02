@@ -543,7 +543,8 @@ MonoBehaviour:
   audioSource: {fileID: 1293785619}
   clipConfirm: {fileID: 8300000, guid: 5f78560a782186241a114b4368a013df, type: 3}
   clipProgress: {fileID: 8300000, guid: 1733f63db314a77489ccfa10fe762960, type: 3}
-  clipFinish: {fileID: 8300000, guid: fab59125163fed143b324a10f0f0b41b, type: 3}
+  clipSelect: {fileID: 8300000, guid: fab59125163fed143b324a10f0f0b41b, type: 3}
+  clipFinish: {fileID: 8300000, guid: bf6ec734d94e4a64cae6af16993e7bb3, type: 3}
   clipHover: {fileID: 8300000, guid: 5e23ca25a8dc90d43b5b0f05ddecb1eb, type: 3}
 --- !u!95 &1326295103
 Animator:

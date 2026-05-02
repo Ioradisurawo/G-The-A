@@ -1,11 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -24,6 +20,7 @@ public class UI : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip clipConfirm;
     public AudioClip clipProgress;
+    public AudioClip clipSelect;
     public AudioClip clipFinish;
     public AudioClip clipHover;
 
@@ -34,8 +31,6 @@ public class UI : MonoBehaviour
     void Start()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
-
-        root.SetEnabled(false);
 
         AddRows();
 
@@ -49,26 +44,18 @@ public class UI : MonoBehaviour
     void UpdateStored()
     {
         var data_instance = dataAsset.CloneTree();
-        data_instance.SetEnabled(false);
-
         int last_idx = gameScript.stored.Count - 1;
-        
         StringBuilder sb = new();
 
         data_instance.Q<Label>("name").text = gameScript.stored[last_idx].name;
-
         foreach (var stat in gameScript.stored[last_idx].affectedStats)
         {
-            sb.Append($"{stat.stat_name} = {stat.value_affect}//\n");
+            sb.Append($"{stat.stat_name} = {stat.value_affect}\n");
         }
 
         data_instance.Q<Label>("value").text = sb.ToString();
-
         var data_row_instance = root.Q("data-row-stored");
-        
         data_row_instance.Q("list").Add(data_instance);
-        
-        data_instance.SetEnabled(true);
 
         // sound
         data_instance.RegisterCallback<MouseEnterEvent>((evt) => {
@@ -78,6 +65,8 @@ public class UI : MonoBehaviour
     }
     void ButtonAdvance()
     {
+        audioSource.PlayOneShot(clipConfirm); 
+
         gameScript.Shuffle();
         if(gameScript.shuffle_amount == gameScript.max_shuffle_amount)
         {
@@ -91,6 +80,9 @@ public class UI : MonoBehaviour
         yield return new WaitForSeconds(waitAmount);
         action();
     }
+    
+    
+    
     void ButtonFinish()
     {
         gameScript.CountStored();
@@ -103,12 +95,25 @@ public class UI : MonoBehaviour
     }
     void ButtonRestart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        buttonsDict["advance"].SetEnabled(false);
+
+        if (clipFinish)
+        {
+            audioSource.PlayOneShot(clipFinish);
+            StartCoroutine(WaitThenDo(clipFinish.length, () => {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }));
+        }
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     void ButtonSelect(int index)
     {
         gameScript.Select(index);
     }
+    
+    
+    
     void SetEnabledSelectButtons(bool value)
     {
         for (int i = 0; i < 3; i++)
@@ -119,6 +124,40 @@ public class UI : MonoBehaviour
         for (int i = 0; i < 3; i++)
             buttonsDict[$"select-{i}"].text = gameScript.pool[gameScript.index_selection_pool[i]].name;
     }
+   
+    
+    
+    void HandleOnShuffled()
+    {
+        status_text.text = $"> раздача {gameScript.shuffle_amount} из {gameScript.max_shuffle_amount}.";
+        buttonsDict["advance"].SetEnabled(false);
+        SetTextSelectButtons();
+        SetEnabledSelectButtons(true);
+
+        if (clipProgress)
+            audioSource.PlayOneShot(clipProgress);
+    }
+    void HandleOnSelect(int value)
+    {
+        UpdateStored();
+        status_text.text = $"> выбран : [{gameScript.pool[gameScript.index_selection_pool[value]].name}]. ожидание раздачи.";
+        buttonsDict["advance"].text = "продолжить";
+        buttonsDict["advance"].SetEnabled(true);
+
+        if (clipSelect)
+            audioSource.PlayOneShot(clipSelect);
+
+        SetEnabledSelectButtons(false);
+    }
+    void HandleOnCountStored()
+    {
+        status_text.text = $"> конец";
+        buttonsDict["advance"].SetEnabled(false);
+        SetEnabledSelectButtons(false);
+    }
+    
+    
+    
     void MapButtons()
     {
         // Buttons
@@ -164,35 +203,11 @@ public class UI : MonoBehaviour
         }
         SetEnabledSelectButtons(false);
 
-        GameScript.OnShuffled += ()=> {
-            status_text.text = $"> раздача {gameScript.shuffle_amount} из {gameScript.max_shuffle_amount}.";
-            buttonsDict["advance"].SetEnabled(false);
-            SetTextSelectButtons();
-            SetEnabledSelectButtons(true);
+        GameScript.OnShuffled += HandleOnShuffled;
 
-            if (clipProgress)
-                audioSource.PlayOneShot(clipProgress);
+        GameScript.OnSelect += HandleOnSelect;
 
-        }; // Bad? But Ok?
-
-        GameScript.OnSelect += (value) => {
-            UpdateStored();
-            status_text.text = $"> выбран : [{gameScript.pool[gameScript.index_selection_pool[value]].name}]. ожидание раздачи.";
-            buttonsDict["advance"].text = "продолжить";
-            buttonsDict["advance"].SetEnabled(true);
-
-            if (clipFinish)
-                audioSource.PlayOneShot(clipFinish);
-
-            SetEnabledSelectButtons(false);
-        };
-
-        GameScript.OnCountStored += () => {
-            status_text.text = $"> конец";
-            buttonsDict["advance"].SetEnabled(false);
-            SetEnabledSelectButtons(false);
-        };
-
+        GameScript.OnCountStored += HandleOnCountStored;
     }
     void AddRows()
     {
@@ -205,12 +220,8 @@ public class UI : MonoBehaviour
         for (int i = 0; i < gameScript.stats.Count; i++)
         {
             var data_instance = dataAsset.CloneTree();
-            data_instance.SetEnabled(false);
-
             data_instance.dataSource = gameScript.stats[i];
-
             data_row_instance.Q("list").Add(data_instance);
-            data_instance.SetEnabled(true);
 
             // sound
             data_instance.RegisterCallback<MouseEnterEvent>((evt) => { 
@@ -232,7 +243,7 @@ public class UI : MonoBehaviour
             StringBuilder sb = new();
             foreach(var stat in gameScript.pool[i].affectedStats)
             {
-                sb.Append($"{stat.stat_name} = {stat.value_affect}//");
+                sb.Append($"{stat.stat_name} = {stat.value_affect}\n");
             }
             data_instance.Q<Label>("value").text = sb.ToString();
 
@@ -251,5 +262,14 @@ public class UI : MonoBehaviour
         data_row_instance.name = "data-row-stored";
         data_row_instance.Q<Label>("block-name").text = $"_Выбранные-предметы (максимум {gameScript.max_shuffle_amount})";
         data_rows.Add(data_row_instance);
+    }
+
+
+
+    private void OnDestroy()
+    {
+        GameScript.OnShuffled -= HandleOnShuffled;
+        GameScript.OnCountStored -= HandleOnCountStored;
+        GameScript.OnSelect -= HandleOnSelect;
     }
 }

@@ -5,7 +5,7 @@
                 <ui:DataBinding property="text" data-source-path="name" binding-mode="ToTarget" source-to-ui-converters="Enum Name to String"/>
             </Bindings>
         </ui:Label>
-        <ui:Label text="VALUE" name="value" data-source-path="" style="-unity-text-align: middle-center; text-overflow: clip; white-space: normal; background-color: rgb(255, 255, 255); flex-wrap: nowrap; overflow: visible;">
+        <ui:Label text="VALUE" name="value" data-source-path="" parse-escape-sequences="true" style="-unity-text-align: middle-center; text-overflow: clip; white-space: normal; background-color: rgb(255, 255, 255); flex-wrap: nowrap; overflow: visible;">
             <Bindings>
                 <ui:DataBinding property="text" data-source-path="value" binding-mode="ToTarget"/>
             </Bindings>

@@ -1,13 +1,8 @@
-using Mono.Cecil.Cil;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using Unity.Mathematics;
 using Unity.Properties;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [Serializable]
 [GeneratePropertyBag]
@@ -25,36 +20,6 @@ public class Stat
     [CreateProperty] public NAME name;
     [CreateProperty] public int value;
     [CreateProperty] public string Combine => $"{name} : {value}";
-
-    [InitializeOnLoadMethod]
-    public static void RegisterConverters()
-    {
-
-        // Create local Converters
-        var group = new ConverterGroup("Enum Name to String");
-
-        group.AddConverter((ref NAME value) =>
-        {
-            switch(value)
-            {
-                case (NAME)0:
-                    return "Maid";
-                case (NAME)1:
-                    return "Harman Smith";
-                case (NAME)2:
-                    return "Dan Smith";
-                case (NAME)3:
-                    return "KAEDE Smith";
-                case (NAME)4:
-                    return "Garcian Smith";
-                default:
-                    return "Unknown";
-            }
-        });
-
-        // Register the converter group in InitializeOnLoadMethod to make it accessible from the UI Builder.
-        ConverterGroups.RegisterConverterGroup(group);
-    }
 }
 
 [GeneratePropertyBag]
@@ -74,10 +39,6 @@ public class GameScript : MonoBehaviour
 
     public bool ready;
 
-    private void Start()
-    {
-        //MockPlay();
-    }
     public void DebugLogAll()
     {
         StringBuilder ss = new();
@@ -136,7 +97,6 @@ public class GameScript : MonoBehaviour
         // set in sel pool
         for (int i = 0; i < 3; i++)
         {
-            //index_selection_pool[i] = UnityEngine.Random.Range(i, pool.Count - 1);
             index_selection_pool[i] = pool_indicies[i];
             Debug.Log("[idx_sel_pool] idx " + i + " = name: " + pool[index_selection_pool[i]].name);
         }
