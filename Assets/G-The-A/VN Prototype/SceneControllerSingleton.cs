@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
-using Unity.VectorGraphics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneControllerSingleton : MonoBehaviour
 {
+    #region Fields
     public static SceneControllerSingleton Instance;
 
     public static Action OnSceneLoadingStarted;
@@ -17,7 +16,10 @@ public class SceneControllerSingleton : MonoBehaviour
     public static bool isBusy;
 
     [SerializeField]
-    private SceneAsset firstScene;
+    private string firstScene;
+    #endregion
+    
+    #region Init
     private void Awake()
     {
         isBusy = false;
@@ -27,9 +29,11 @@ public class SceneControllerSingleton : MonoBehaviour
     }
     private void Start()
     {
-        LoadSceneAdditive(firstScene);
+        if(firstScene != "")
+            LoadSceneAdditive(firstScene);
     }
-    public static void LoadSceneAdditive(SceneAsset sceneName)
+    #endregion
+    public static void LoadSceneAdditive(string sceneName)
     {
         if (isBusy)
         {
@@ -39,7 +43,7 @@ public class SceneControllerSingleton : MonoBehaviour
 
         Instance.StartCoroutine(LoadSceneProcess(sceneName));
     }
-    private static IEnumerator LoadSceneProcess(SceneAsset sceneName)
+    private static IEnumerator LoadSceneProcess(string sceneName)
     {
         isBusy = true;
 
@@ -50,9 +54,9 @@ public class SceneControllerSingleton : MonoBehaviour
         if (currentSceneName != null)
             SceneManager.UnloadSceneAsync(currentSceneName, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects); // UnloadEmbedded because we won't need em
 
-        currentSceneName = sceneName.name;
+        currentSceneName = sceneName;
 
-        var process = SceneManager.LoadSceneAsync(sceneName.name, LoadSceneMode.Additive);
+        var process = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         while (process.isDone != true)
         {
             yield return null;

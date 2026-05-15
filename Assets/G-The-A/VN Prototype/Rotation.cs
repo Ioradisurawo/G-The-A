@@ -19,20 +19,18 @@ public class Rotation : MonoBehaviour
     {
         if (!isRotating)
             return;
-
-        var current_rotation = gameObject.transform.rotation.eulerAngles;
-
-        gameObject.transform.eulerAngles = new Vector3(
-            current_rotation.x + rotate_x, 
-            current_rotation.y + rotate_y, 
-            current_rotation.z + rotate_z
-            );
+        transform.Rotate(new Vector3(
+            rotate_x,
+            rotate_y,
+            rotate_z
+            ) * Time.deltaTime);
     }
 
     public void Randomize()
     {
-        rotate_x = UnityEngine.Random.Range(0f, 12f);
-        rotate_y = UnityEngine.Random.Range(0f, 12f);
-        rotate_z = UnityEngine.Random.Range(0f, 12f);
+        float max = 180f;
+        rotate_x = UnityEngine.Random.Range(0f, max);
+        rotate_y = UnityEngine.Random.Range(0f, max);
+        rotate_z = UnityEngine.Random.Range(0f, max);
     }
 }

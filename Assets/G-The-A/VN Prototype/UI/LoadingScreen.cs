@@ -27,6 +27,8 @@ public class LoadingScreen : MonoBehaviour
         var root = uiDocument.rootVisualElement;
 
         loadingScreen = root.Q<VisualElement>("loading-screen");
+
+        //Hide();
     }
     void Show()
     {

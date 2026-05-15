@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &70866243134619801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9179205699741349206}
+  - component: {fileID: 1428811554074361250}
+  m_Layer: 0
+  m_Name: Dialogue-002-01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9179205699741349206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70866243134619801}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.66235, y: 0.71005, z: -7.4251}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1428811554074361250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70866243134619801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598b1b3d5e29f9944addd06f4557e53c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  dialogueDatas:
+  - speaker: "\u0411\u0440\u044D\u0434 \u041F\u0438\u0442"
+    text: "\u041E\u043E\u043E, \u0447\u0442\u043E \u0432 \u043A\u043E\u0440\u043E\u0431\u043A\u0435?!!!"
+    appearEvents: []
+    disappearEvents: []
+  - speaker: "\u0411\u0440\u044D\u0434 \u041F\u0438\u0442"
+    text: "\u0427\u0442\u043E \u0432 \u0447\u0451\u0440\u0442\u043E\u0432\u043E\u0439
+      \u043A\u043E\u0440\u043E\u0431\u043A\u0435??!"
+    appearEvents: []
+    disappearEvents: []
+  - speaker: "\u0411\u0440\u044D\u0434 \u041F\u0438\u0442"
+    text: "\u0427\u0442\u043E \u0432 \u043A\u043E\u0440\u043E\u0431\u043A\u0435\u0435\u0435\u0435\u0435\u0435??!!!"
+    appearEvents: []
+    disappearEvents:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Rotation, Assembly-CSharp
+          m_MethodName: Randomize
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Rotation, Assembly-CSharp
+          m_MethodName: Randomize
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  beginEvents: []
+  endEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2030784248516861067, guid: 20892d6267a76c04db27a26ca4ce7ac9, type: 3}
+        m_TargetAssemblyTypeName: DialogueReader, Assembly-CSharp
+        m_MethodName: SetDialogue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1428811554074361250}
+          m_ObjectArgumentAssemblyTypeName: Dialogue, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

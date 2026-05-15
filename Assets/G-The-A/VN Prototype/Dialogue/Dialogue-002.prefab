@@ -86,35 +86,9 @@ MonoBehaviour:
       \u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E \u0441\u0446\u0435\u043D\u0443"
     appearEvents:
     - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4332707363922432472, guid: 99b072a5c2505194dbe3ad5208f2e4ac, type: 3}
-          m_TargetAssemblyTypeName: AudioPlayerSingleton, Assembly-CSharp
-          m_MethodName: PlaySFX
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 05e9155e692da0e4693d1192991b5f25, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     disappearEvents: []
-  beginEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  beginEvents: []
   endEvents:
   - m_PersistentCalls:
       m_Calls:
@@ -135,12 +109,12 @@ MonoBehaviour:
       - m_Target: {fileID: 2831349590784858053, guid: 61ffb7af90cfff241ae20361c7ae2d63, type: 3}
         m_TargetAssemblyTypeName: SceneControllerSingleton, Assembly-CSharp
         m_MethodName: LoadSceneAdditive
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 102900000, guid: 1b85fc7fc9f914d4b8e5ad04b6d47fc9, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Novel-02
           m_BoolArgument: 0
         m_CallState: 2
