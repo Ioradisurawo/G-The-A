@@ -31,7 +31,7 @@ VisualElement {
 }
 
 .unity-disabled {
-    opacity: 0.1;
+    opacity: 0;
     display: flex;
     visibility: visible;
     transition-delay: 0s, 0s;
@@ -100,4 +100,8 @@ VisualElement {
     border-bottom-color: rgba(0, 0, 0, 0.6);
     opacity: 1;
     transition-duration: 0s, 1s;
+}
+
+.hide {
+    opacity: 0;
 }

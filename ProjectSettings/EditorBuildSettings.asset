@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/G-The-A/Scenes/Prototype Score.unity
+    path: Assets/G-The-A/Scenes/Score-01.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/G-The-A/Scenes/Setup.unity
+    guid: 9753289db7b7e944dbd7a997b1123a8e
+  - enabled: 1
+    path: Assets/G-The-A/Scenes/Novel-01.unity
+    guid: 4c7cc631de267a64f86e5156e96867ad
+  - enabled: 1
+    path: Assets/G-The-A/Scenes/Novel-02.unity
+    guid: 1b85fc7fc9f914d4b8e5ad04b6d47fc9
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 34c960c649e2a33469cf97c0ba014b36, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
