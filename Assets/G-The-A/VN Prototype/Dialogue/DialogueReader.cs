@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -13,8 +15,9 @@ public class DialogueReader : MonoBehaviour
     private Dialogue currentDialogue;
     
     private int currentIndex = 0;
-    public bool isEnabled = false; // Показано ли окно
-    public bool continueDialog = true; // Продолжить ли диалог если загружен следующий?
+    public bool isShowText = false; // Показано ли окно
+    public bool isAdvanceAllowed = true;
+    public bool isContinueDialog = true; // Продолжить ли диалог если загружен следующий?
     public enum ReaderState : int
     {
         // Нет диалога
@@ -31,6 +34,11 @@ public class DialogueReader : MonoBehaviour
     private UIDocument uiDocument;
 
     private VisualElement textWindow;
+
+    [SerializeField]
+    private VisualTreeAsset selectionButton;
+
+    private VisualElement selectionWindow;
     private Label textLabel;
     #endregion
 
@@ -40,13 +48,13 @@ public class DialogueReader : MonoBehaviour
         if (Instance == null && Instance != this)
             Instance = this;
 
-        SceneControllerSingleton.OnSceneLoadingStarted += Disable;
-        SceneControllerSingleton.OnSceneLoadingFinished += Enable;
+        SceneControllerSingleton.OnSceneLoadingStarted += TextHide;
+        SceneControllerSingleton.OnSceneLoadingFinished += TextShow;
     }
     private void OnDestroy()
     {
-        SceneControllerSingleton.OnSceneLoadingStarted -= Disable;
-        SceneControllerSingleton.OnSceneLoadingFinished -= Enable;
+        SceneControllerSingleton.OnSceneLoadingStarted -= TextHide;
+        SceneControllerSingleton.OnSceneLoadingFinished -= TextShow;
     }
     void Start()
     {
@@ -54,8 +62,11 @@ public class DialogueReader : MonoBehaviour
         
         textLabel = uiDocument.rootVisualElement.Q<Label>("text-label");
 
+        selectionWindow = uiDocument.rootVisualElement.Q<VisualElement>("dialogue-select");
+        selectionWindow.SetEnabled(false);
+
         textWindow = root.Q<VisualElement>("text-block");
-        textWindow.SetEnabled(isEnabled);
+        textWindow.SetEnabled(isShowText);
         
         state = currentDialogue ? ReaderState.Ready : ReaderState.Initial;
     }
@@ -64,39 +75,86 @@ public class DialogueReader : MonoBehaviour
     #region Public
     public void Advance(InputAction.CallbackContext value)
     {
-        if (isEnabled && value.canceled)
+        if (isAdvanceAllowed && isShowText && value.canceled)
         {
             Instance.NextDialogueData();
         }
     }
-    public void Enable()
+    public void TextShow()
     {
-        isEnabled = true;
+        isShowText = true;
         
         if(textWindow != null) 
-            textWindow.SetEnabled(isEnabled);
+            textWindow.SetEnabled(isShowText);
     }
-    public void Disable()
+    public void TextHide()
     {
-        isEnabled = false;
+        isShowText = false;
 
         if (textWindow != null)
-            textWindow.SetEnabled(isEnabled);
+            textWindow.SetEnabled(isShowText);
     }
+
+    //[Obsolete]
+    // Use ChoicesAdd with DialogueChoices MonoBehaviour object instead
+    //public static void ChoiceAdd(DialogueChoiceData choiceData)
+    //{
+    //    Button newButton = Instance.selectionButton.CloneTree().Q<Button>("select-button");
+    //    newButton.clicked += () => { ChoiceSelect(choiceData); };
+    //    newButton.text = choiceData.text;
+    //    Instance.selectionWindow.Add(newButton);
+    //}
+    public static void ChoicesAdd(DialogueChoices dialogueChoices)
+    {
+        foreach (var choiceData in dialogueChoices.dialogueChoiceDatas)
+        {
+            Button newButton = Instance.selectionButton.CloneTree().Q<Button>("select-button");
+            newButton.text = choiceData.text;
+            newButton.clicked += () => { ChoiceSelect(choiceData); };
+            Instance.selectionWindow.Add(newButton);
+        }
+        
+        ChoicesShow();
+    }
+    public static void ChoicesShow()
+    {
+        Instance.isAdvanceAllowed = false;
+        Instance.selectionWindow.SetEnabled(true);
+        Debug.Log("Choice window shown!");
+    }
+    public static void ChoiceSelect(DialogueChoiceData choiceData)
+    {
+        Debug.Log($"Selected choice {choiceData.text}!");
+        foreach(var unityEvent in choiceData.eventList)
+        {
+            unityEvent?.Invoke();
+        }
+
+        ChoicesRemove();
+    }
+    // Hides and removes choices
+    public static void ChoicesRemove()
+    {
+        Instance.selectionWindow.SetEnabled(false);
+        Instance.selectionWindow.Clear();
+        Instance.isAdvanceAllowed = true;
+        Debug.Log("Choice window hidden!");
+    }
+
     public static void SetDialogue(Dialogue dialogue)
     {
         Instance.state = ReaderState.Ready;
         Instance.currentIndex = 0;
         Instance.currentDialogue = dialogue;
 
-        if (Instance.continueDialog)
+        if (Instance.isContinueDialog)
         {
             Instance.NextDialogueData();
         }
     }
     public static void SetContinue(bool continueDialog)
     {
-        Instance.continueDialog = continueDialog;
+        Instance.isContinueDialog = continueDialog;
     }
     #endregion
 

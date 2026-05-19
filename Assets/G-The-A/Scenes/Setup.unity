@@ -672,6 +672,10 @@ PrefabInstance:
       propertyPath: uiDocument
       value: 
       objectReference: {fileID: 1326295100}
+    - target: {fileID: 2030784248516861067, guid: 20892d6267a76c04db27a26ca4ce7ac9, type: 3}
+      propertyPath: selectionButton
+      value: 
+      objectReference: {fileID: 9197481963319205126, guid: 7c2a96ad4a9ca614d94901b308ca30b2, type: 3}
     - target: {fileID: 4067582031434531905, guid: 20892d6267a76c04db27a26ca4ce7ac9, type: 3}
       propertyPath: m_Name
       value: Reader
@@ -696,7 +700,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2831349590784858053, guid: 61ffb7af90cfff241ae20361c7ae2d63, type: 3}
       propertyPath: firstScene
-      value: Novel-01
+      value: Novel-03
       objectReference: {fileID: 0}
     - target: {fileID: 3088785404812196740, guid: 61ffb7af90cfff241ae20361c7ae2d63, type: 3}
       propertyPath: m_Name

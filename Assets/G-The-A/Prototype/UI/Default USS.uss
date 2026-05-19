@@ -105,3 +105,79 @@ VisualElement {
 .hide {
     opacity: 0;
 }
+
+.dialogue-select {
+    flex-grow: 1;
+    background-color: rgba(0, 18, 255, 0.24);
+    width: 40%;
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+    align-self: auto;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-left-color: rgba(0, 0, 0, 0.2);
+    border-right-color: rgba(0, 0, 0, 0.2);
+    border-top-color: rgba(0, 0, 0, 0.2);
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    min-width: 30%;
+}
+
+.dialogue-select-button {
+    width: auto;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    background-color: rgb(0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    margin-top: 2px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    margin-left: 4px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    transition-duration: 0.1s, 1s;
+    min-width: 0%;
+}
+
+.dialogue-select-button:hover {
+    width: auto;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    background-color: rgb(0, 26, 255);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    margin-top: 2px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    margin-left: 4px;
+    padding-top: 12px;
+    padding-right: 10px;
+    padding-bottom: 12px;
+    padding-left: 10px;
+}
