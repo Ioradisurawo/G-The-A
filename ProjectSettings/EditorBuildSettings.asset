@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/G-The-A/Scenes/Setup.unity
     guid: 9753289db7b7e944dbd7a997b1123a8e
   - enabled: 1
+    path: Assets/G-The-A/Scenes/Novel-00.unity
+    guid: e65e94e46c89a254fb26183d6b0392fc
+  - enabled: 1
     path: Assets/G-The-A/Scenes/Score-01.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
@@ -21,6 +24,7 @@ EditorBuildSettings:
     path: Assets/G-The-A/Scenes/Novel-03.unity
     guid: 5558f1e2e546fb4409ef05cac288053f
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 07c81ce510811924f8909de322a938fd, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 34c960c649e2a33469cf97c0ba014b36, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

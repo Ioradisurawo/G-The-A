@@ -675,52 +675,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueChoices
   dialogueChoiceDatas:
-  - text: Sound - confirm
+  - text: "\u041F\u0435\u0440\u0435\u0439\u0442\u0438 - \u0421\u0446\u0435\u043D\u0430
+      1"
     eventList:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4332707363922432472, guid: 99b072a5c2505194dbe3ad5208f2e4ac, type: 3}
-          m_TargetAssemblyTypeName: AudioPlayerSingleton, Assembly-CSharp
-          m_MethodName: PlaySFX
-          m_Mode: 2
+        - m_Target: {fileID: 2831349590784858053, guid: 61ffb7af90cfff241ae20361c7ae2d63, type: 3}
+          m_TargetAssemblyTypeName: SceneControllerSingleton, Assembly-CSharp
+          m_MethodName: LoadSceneAdditive
+          m_Mode: 5
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 5f78560a782186241a114b4368a013df, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Novel-01
             m_BoolArgument: 0
           m_CallState: 2
-  - text: Sound - revert
+  - text: "\u041F\u0435\u0440\u0435\u0439\u0442\u0438 - \u0421\u0446\u0435\u043D\u0430
+      2"
     eventList:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4332707363922432472, guid: 99b072a5c2505194dbe3ad5208f2e4ac, type: 3}
-          m_TargetAssemblyTypeName: AudioPlayerSingleton, Assembly-CSharp
-          m_MethodName: PlaySFX
-          m_Mode: 2
+        - m_Target: {fileID: 2831349590784858053, guid: 61ffb7af90cfff241ae20361c7ae2d63, type: 3}
+          m_TargetAssemblyTypeName: SceneControllerSingleton, Assembly-CSharp
+          m_MethodName: LoadSceneAdditive
+          m_Mode: 5
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: bf6ec734d94e4a64cae6af16993e7bb3, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Novel-02
             m_BoolArgument: 0
           m_CallState: 2
-  - text: Sound - destroyed
+  - text: "\u041F\u0435\u0440\u0435\u0439\u0442\u0438 - \u0421\u0446\u0435\u043D\u0430
+      3"
     eventList:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4332707363922432472, guid: 99b072a5c2505194dbe3ad5208f2e4ac, type: 3}
-          m_TargetAssemblyTypeName: AudioPlayerSingleton, Assembly-CSharp
-          m_MethodName: PlaySFX
-          m_Mode: 2
+        - m_Target: {fileID: 2831349590784858053, guid: 61ffb7af90cfff241ae20361c7ae2d63, type: 3}
+          m_TargetAssemblyTypeName: SceneControllerSingleton, Assembly-CSharp
+          m_MethodName: LoadSceneAdditive
+          m_Mode: 5
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 1733f63db314a77489ccfa10fe762960, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Novel-03
+            m_BoolArgument: 0
+          m_CallState: 2
+  - text: "\u0412\u044B\u0445\u043E\u0434"
+    eventList:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2831349590784858053, guid: 61ffb7af90cfff241ae20361c7ae2d63, type: 3}
+          m_TargetAssemblyTypeName: SceneControllerSingleton, Assembly-CSharp
+          m_MethodName: QuitGame
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Novel-03
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &2112186882

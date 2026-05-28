@@ -723,6 +723,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - text: "\u0412 \u0433\u043B\u0430\u0432\u043D\u043E\u0435 \u043C\u0435\u043D\u044E"
+    eventList:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2831349590784858053, guid: 61ffb7af90cfff241ae20361c7ae2d63, type: 3}
+          m_TargetAssemblyTypeName: SceneControllerSingleton, Assembly-CSharp
+          m_MethodName: LoadSceneAdditive
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Novel-00
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2112186882
 GameObject:
   m_ObjectHideFlags: 0
